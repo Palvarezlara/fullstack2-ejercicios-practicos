@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 - Formularios en HTML</title>
+</head>
+
+<body>
+    <h1>Ejercicio 3 - Formularios básicos en HTML</h1>
+    <p>Practicaremos etiquetas de formularios y validaciones nativas de HTML5.
+        Todos los <strong>label</strong> están asociados a su <strong>input</strong> usando el atributo
+        <code>for</code>.
+    </p>
+
+    <!-- action vacía: prueba validaciones en el navegador sin enviar datos -->
+    <form action="">
+        <fieldset>
+            <legend>Datos personales</legend>
+            <div>
+                <label for="nombre">Nombre Completo</label><br>
+                <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre" required minlength="3" />
+            </div>
+
+            <div>
+                <label for="email">Correo Electrónico</label><br>
+                <input type="email" id="email" name="email" placeholder="Ej: pamela@tucorreo.com" required />
+            </div>
+
+            <div>
+                <label for="telefono">Teléfono (CHL)</label><br>
+                <!---Patrón simple para +56 9 1234 5678 o 912345678-->
+                <input type="tel" id="telefono" name="telefono" placeholder="Ej: +56 9 1234 5678" required
+                    pattern="^(\+?56)?\s?9\s?\d{4}\s?\d{4}$" />
+                <small>Formato sugerido: +56 9 1234 5678</small>
+            </div>
+
+            <div>
+                <label for="edad">Edad</label><br>
+                <input type="number" id="edad" name="edad" placeholder="Ej: 30" required min="1" max="120" step="1" />
+            </div>
+
+            <div>
+                <label for="nacimiento">Fecha de nacimiento</label><br>
+                <input type="date" id="nacimiento" name="nacimiento" required />
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferencias</legend>
+
+            <div>
+                <label for="lenguaje">Lenguaje favorito</label><br>
+                <select name="lenguaje" id="lenguaje" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="csharp">C#</option>
+                </select>
+            </div>
+            <div>
+                <p>Turno preferido (radio):</p>
+                <label>
+                    <input type="radio" name="turno" value="mañana" required /> Mañana
+                </label>
+                <label>
+                    <input type="radio" name="turno" value="tarde" /> Tarde
+                </label>
+                <label>
+                    <input type="radio" name="turno" value="noche" /> Noche
+                </label>
+            </div>
+            <div>
+                <p>Intereses (checkbox):</p>
+                <label>
+                    <input type="checkbox" name="intereses" value="frontend" /> Frontend
+                </label>
+                <label>
+                    <input type="checkbox" name="intereses" value="backend" /> Backend
+                </label>
+                <label>
+                    <input type="checkbox" name="intereses" value="testing" /> Testing
+                </label>
+            </div><br>
+
+            <div>
+                <label for="ciudad">Ciudad (sugerencias con datalist)</label><br>
+                <input id="ciudad" name="ciudad" list="ciudades" placeholder="Escribe tu ciudad..." />
+                <datalist id="ciudades">
+                    <option value="Santiago"></option>
+                    <option value="Valparaíso"></option>
+                    <option value="Viña del Mar"></option>
+                    <option value="Concepción"></option>
+                    <option value="La Serena"></option>
+                </datalist>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Comentarios</legend>
+            <div>
+                <label for="mensaje">Mensaje</label><br>
+                <textarea id="mensaje" name="mensaje" rows="4" cols="40" placeholder="Escribe tu mensaje..."></textarea>
+            </div>
+        </fieldset>
+
+        <div style="margin-top: 12px;">
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpiar</button>
+
+            <a href="index.html">⬅️ Volver al inicio</a>
+        </div>
+    </form>
+    <hr>
+    <h2>Qué practicar en este ejercicio</h2>
+    <ul>
+        <li>Asociar <code>label</code> con <code>input</code> mediante <code>for</code> e <code>id</code>.</li>
+        <li>Usar validaciones nativas: <code>required</code>, <code>min</code>, <code>max</code>, <code>pattern</code>.</li>
+        <li>Agrupar campos con <code>fieldset</code> y <code>legend</code> para semántica.</li>
+        <li>Controles: texto, email, tel, number, date, select, radio, checkbox, textarea.</li>
+        <li>Autocompletar con <code>datalist</code>.</li>
+  </ul>
+</body>
+
+</html>
