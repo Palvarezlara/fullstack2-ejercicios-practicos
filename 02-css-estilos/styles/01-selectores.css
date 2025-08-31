@@ -1,0 +1,46 @@
+/* Etiqueta vs clase vs id*/
+p { color: var(--gray-700);}
+#intro { color: var(--primary)} /* Más específico que p*/
+.tarjeta { border: 1px solid var(--gray-300); border-radius: var(--radius); padding: var(--space-2);}
+
+/*Descendiente y > hijo directo*/
+.menu li a {font-weight: 600;}
+.menu > .item.activo a {color: var(--primary);}
+
+/* Hermanos adyacentes y generales*/
+.destacado + .tarjeta {outline:2px dashed var(--accent);} /*adyacente*/
+.tarjeta.destacado ~ .tarjeta {background: #fff;} /*generales*/
+
+/* Atributo*/
+a[data-role="externo"]::after {content:" ↗";}
+
+/* Pseudoclases de interacción y validación*/
+a:hover { text-decoration: underline; }
+input:focus { outline:2px solid var(--primary); box-shadow:0 0 0 3px rgba(37, 99, 235, .2);}
+input:valid { border:1px solid var(--accent); }
+
+/* Pseudoclases estructurales */
+.menu .item:first-child a { border-bottom:2px solid var(--primary); }
+.grid .tarjeta:nth-child(3) { border-style:dashed; }
+
+
+/* Pseudoelementos */
+.tarjeta h3::before { content:"# "; color:var(--gray-700); }
+
+/* Layout simple para ver tarjetas */
+.grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));}
+
+/*
+🧠 Glosario rápido (lo esencial)
+
+:focus (pseudoclase)
+Se activa cuando un elemento es el foco actual de la página (recibe entradas del teclado).
+Cómo activarlo: haz clic en el elemento o presiona TAB hasta llegar a él.
+En nuestro caso, lo verás en los <input> del formulario.
+
+:valid (pseudoclase)
+Se activa cuando el valor del campo cumple las reglas de validación HTML5 declaradas en el input (por ejemplo: type="email", required, minlength, pattern, etc.).
+Ejemplo: si el input es type="email" y escribes a@a.cl, el navegador lo considera válido → se aplica el estilo de input:valid.
+
+También existen :invalid, :required, :optional, etc., que puedes usar para estados alternativos.
+*/

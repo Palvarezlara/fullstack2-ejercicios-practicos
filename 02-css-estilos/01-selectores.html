@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 01 - Selectores</title>
+    <!-- Hoja base con variables y utilidades -->
+    <link rel="stylesheet" href="styles/common.css">
+    <!-- Estilos específicos del ejercicio de selectores -->
+    <link rel="stylesheet" href="styles/01-selectores.css">
+</head>
+
+<body>
+    <!-- .container: utilidad definida en common.css para centrar y dar padding lateral -->
+    <main class="container">
+        <h1>CSS: Selectores</h1>
+        <p>
+            Practica selectores de etiqueta, clase, id, descendientes, hermanos, atributo
+            y pseudoclases.
+            <!-- Este <p> será afectado por el selector de etiqueta `p { ... }` en 01-selectores.css -->
+        </p>
+        <!-- Tarjeta 1: estructura base -->
+        <section class="card">
+            <h2>1) Estructura base</h2>
+
+            <!-- id="intro": lo usaremos con el selector por ID `#intro { ... }` (más específico que `p`) -->
+            <p id="intro">Este párrafo tiene <span class="code">id="intro</span> y un <em>span</em> dentro
+                <!-- El color de este <p> lo maneja #intro, no el selector genérico de <p> -->
+            </p>
+
+            <!-- .menu: demostraremos selectores descendientes `.menu li a` y de hijo directo `.menu > .item.activo a` -->
+            <ul class="menu">
+                <!-- .item.activo: demostración de especificidad (clase + clase) 
+             y del selector de hijo directo en CSS: .menu > .item.activo a { ... } -->
+                <li class="item activo"><a href="#">Inicio</a></li>
+
+                <!-- data-role="externo": lo capturamos con selector de atributo [data-role="externo"] -->
+                <li class="item"><a href="#" data-role="externo">Blog</a></li>
+
+                <!-- aria-current="page": lo usaremos para resaltar el enlace "actual" con [aria-current] -->
+                <li class="item"><a href="#" aria-current="page">Contacto</a></li>
+            </ul>
+            <!-- TIP: Pasa el mouse por los enlaces para ver :hover. 
+           Navega con TAB para ver :focus en los inputs del formulario de abajo. -->
+        </section>
+
+        <!-- Tarjeta 2: tarjetas de ejemplo para `+` (hermano adyacente) y `~` (hermano general) -->
+        <section class="card">
+            <h2>2) Tarjetas de ejemplo</h2>
+
+            <!-- .grid: layout en CSS para colocar las tarjetas en columnas -->
+            <div class="grid">
+                <!-- .tarjeta.destacado: esta tarjeta afectará a la tarjeta siguiente con el selector `.destacado + .tarjeta` -->
+                <article class="tarjeta destacado">
+                    <h3>Destacado</h3>
+                    <p>Tarjeta con clase <span class="code">.destacado</span>.</p>
+                </article>
+
+                <!-- Hermano adyacente de .destacado: será “marcado” por `.destacado + .tarjeta` -->
+                <article class="tarjeta">
+                    <article class="tarjeta">
+                        <h3>Normal</h3>
+                        <p>Tarjeta normal para probar selectores de hermano.</p>
+                    </article>
+
+                    <!-- data-level="pro": lo capturamos con `[data-level="pro"]` si quisiéramos estilos especiales -->
+                    <article class="tarjeta" data-level="pro">
+                        <h3>Pro</h3>
+                        <p>Tiene atributo <span class="code">data-level="pro"</span>.</p>
+                    </article>
+                </article>
+            </div>
+            <!-- TIP: `.tarjeta.destacado ~ .tarjeta` afecta a todos los hermanos posteriores (no solo el primero). -->
+        </section>
+
+        <!-- Tarjeta 3: formulario para ver :focus y :valid en acción -->
+        <section class="card">
+            <h2>3) Formulario para :focus / :valid</h2>
+
+            <!-- Este formulario no envía datos (sin backend). Sirve para probar validaciones nativas del navegador. -->
+            <form>
+                <!-- INPUT EMAIL:
+             - `required`: obliga a completar.
+             - `type="email"`: el navegador valida formato de email. 
+             - Con valor válido, el selector CSS `input:valid { ... }` aplicará estilos de “válido”. -->
+                <label>Correo
+                    <input type="email" placeholder="tu@correo.com" required>
+                </label>
+
+                <!-- INPUT TEXTO:
+             - `required`+`minlength="3"`: valida longitud mínima.
+             - Al enfocar con TAB o clic: `input:focus { ... }`
+             - Al cumplir reglas: `input:valid { ... }` -->
+                <label>Nombre
+                    <input type="text" minlength="3" required>
+                </label>
+
+                <!-- Botón normal, no tiene efecto en :focus/:valid pero permite “enviar”.
+             Si faltan validaciones, el navegador impedirá el envío y mostrará mensajes. -->
+                <button>Enviar</button>
+            </form>
+
+            <!-- Cómo probar:
+           1) Pulsa TAB sobre los inputs → verás el estilo de `:focus` (borde/sombra).
+           2) Escribe un email válido (ej: a@a.cl) → verás `:valid`.
+           3) Deja un campo requerido vacío y pulsa “Enviar” → verás validación nativa. -->
+        </section>
+        <section class="card">
+            <h2>Qué practicar en este ejercicio</h2>
+            <ul>
+                <li>Resalta el tercer ítem del menú usando <span class="code">:nth-child(3)</span>.</li>
+                <li>Pinta de amarillo cualquier <span class="code"> a </span>con el atributo <span
+                        class="code">aria-current</span>.</li>
+                <li>Usa <span class="code">:not(.destacado)</span> para estilizar solo las tarjetas no destacadas.</li>
+
+            </ul>
+        </section>
+        <p style="margin-top:1rem">
+            <a href="index.html">⬅️ Volver al índice de CSS</a>
+            ·
+            <a href="../01-html-basico/index.html">Ir al índice de HTML</a>
+        </p>
+
+    </main>
+
+</body>
+
+</html>

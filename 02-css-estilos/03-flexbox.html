@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 03 - Flexbox</title>
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS 03 - Flexbox</title>
+
+        <!-- Hoja base (variables, reset, utilidades) -->
+        <link rel="stylesheet" href="styles/common.css">
+        <!-- Estilos específicos del ejercicio -->
+        <link rel="stylesheet" href="styles/03-flexbox.css">
+    </head>
+
+<body>
+    <!--
+    HEADER como contenedor flex:
+    - justify-content: space-between para separar logo, menú y acciones
+    - align-items: center para alinear verticalmente
+    - En móvil, usaremos flex-wrap + order para reordenar
+  -->
+    <header class="site-header">
+        <!-- Logo: bloque simple -->
+        <a class="logo" href="#">Fullstack II</a>
+
+        <!-- NAV es un FLEX horizontal con gap.
+         Usamos una lista para accesibilidad y semántica -->
+        <nav class="nav" aria-label="Navegación principal">
+            <ul class="nav-list">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Ejercicios</a></li>
+                <li><a href="#">Recursos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+
+        <!-- Acciones a la derecha: input + botón dentro de un flex -->
+        <div class="nav-actions">
+            <!-- input crece (flex-grow) para ocupar espacio libre disponible -->
+            <input type="search" placeholder="Buscar..." aria-label="Buscar contenido" />
+            <button class="btn">Buscar</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Sección hero opcional para separar visualmente -->
+        <section class="hero card">
+            <h1>Flexbox: barra de navegación y tarjetas responsive</h1>
+            <p>
+                Practica <code>display:flex</code>, <code>flex-wrap</code>, <code>gap</code>,
+                <code>justify-content</code>, <code>align-items</code>, <code>flex-grow</code>,
+                <code>flex-basis</code> y <code>order</code>.
+            </p>
+        </section>
+
+        <!--
+      GRID de tarjetas con FLEX:
+      - El contenedor usa display:flex + flex-wrap para que las tarjetas bajen de línea.
+      - Cada .card usa flex: 1 1 240px (grow, shrink, basis) para ser fluidas.
+      - align-stretch (por defecto) hace que las tarjetas "estiren" su altura si el contenedor lo requiere.
+    -->
+        <section class="card">
+            <h2>Tarjetas (flex-wrap + flex-basis)</h2>
+            <div class="card-grid">
+                <!-- Tarjeta #1 -->
+                <article class="card-item">
+                    <img src="https://placehold.co/640x360" alt="Imagen de ejemplo 1">
+                    <div class="card-body">
+                        <h3>HTML Semántico</h3>
+                        <p>Landmarks, headings y estructura accesible con <code>header</code>, <code>nav</code>,
+                            <code>main</code>, <code>aside</code> y <code>footer</code>.</p>
+                        <!-- margin-top:auto en .card-footer empuja el botón al fondo -->
+                        <div class="card-footer">
+                            <button class="btn">Ver más</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta #2 -->
+                <article class="card-item">
+                    <img src="https://placehold.co/640x360" alt="Imagen de ejemplo 2">
+                    <div class="card-body">
+                        <h3>CSS: Selectores</h3>
+                        <p>Combina selectores de tipo, clase, id, atributo y pseudoclases como <code>:hover</code>,
+                            <code>:focus</code>, <code>:valid</code>.</p>
+                        <div class="card-footer">
+                            <button class="btn">Ver más</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta #3 (demostración grow mayor) -->
+                <article class="card-item grow-2">
+                    <img src="https://placehold.co/640x360" alt="Imagen de ejemplo 3">
+                    <div class="card-body">
+                        <h3>Flexbox</h3>
+                        <p>Distribuye espacio, alinea elementos y crea layouts fluidos con poco CSS. Esta tarjeta crece
+                            el doble.</p>
+                        <div class="card-footer">
+                            <button class="btn">Ver más</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta #4 -->
+                <article class="card-item">
+                    <img src="https://placehold.co/640x360" alt="Imagen de ejemplo 4">
+                    <div class="card-body">
+                        <h3>LocalStorage / Cookies</h3>
+                        <p>Guarda preferencias del usuario en el navegador para mejorar la UX.</p>
+                        <div class="card-footer">
+                            <button class="btn">Ver más</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta #5 -->
+                <article class="card-item">
+                    <img src="https://placehold.co/640x360" alt="Imagen de ejemplo 5">
+                    <div class="card-body">
+                        <h3>Pruebas (Jasmine/Karma)</h3>
+                        <p>Asegura calidad del frontend con pruebas unitarias de componentes y DOM.</p>
+                        <div class="card-footer">
+                            <button class="btn">Ver más</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Tarjeta #6 -->
+                <article class="card-item">
+                    <img src="https://placehold.co/640x360" alt="Imagen de ejemplo 6">
+                    <div class="card-body">
+                        <h3>REST</h3>
+                        <p>Integra frontend y backend con operaciones CRUD y autenticación segura.</p>
+                        <div class="card-footer">
+                            <button class="btn">Ver más</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección para practicar order en móvil -->
+        <section class="card order-lab">
+            <h2>Laboratorio de <code>order</code> (móvil)</h2>
+            <!--
+        En escritorio: orden natural (A, B, C).
+        En móvil (media query): cambiamos el orden a C, A, B usando .box--A/B/C con order.
+      -->
+            <div class="order-row">
+                <div class="box box--A">A</div>
+                <div class="box box--B">B</div>
+                <div class="box box--C">C</div>
+            </div>
+            <p class="nota">Reduce el ancho de la ventana para ver cómo cambia el orden.</p>
+        </section>
+
+        <!--Tarjeta con pasos para practicar-->
+        <section class="card">
+            <h2>🧪 Pasos para practicar</h2>
+            <ol>
+                <li><p>Abre <span class="code">03-flexbox.html</span> y redimensiona la ventana: verifica cómo el header se reacomoda (wrap + order).</p></li>
+                <li><p>En la grilla de tarjetas:</p>
+                    <ul>
+                        <li>Cambia <span class="code">flex-basis</span> de <span class="code">.card-item</span> a <span class="code">200px</span>, <span class="code">280px</span>, etc., y observa cuántas columnas entran.</li>
+                        <li>Quita temporalmente <span class="code">flex-wrap</span>para ver qué ocurre cuando no puede bajar de línea.</li>
+                        <li>Quita <span class="code">margin-top:auto</span>  en <span class="code">.card-footer</span> para notar la diferencia de alturas entre tarjetas.</li>
+                    </ul>
+                </li>
+                <li><p>En el laboratorio de order, cambia el breakpoint (680px) y el orden deseado.</p></li>
+            </ol>
+           <h2>✅ Retos (opcionales)</h2>
+           <ul>
+            <li><p>Haz que<span class="code">.nav-actions input</span> tenga <span class="code">max-width: 420px</span>en pantallas grandes y ocupe 100% en móvil.</p></li>
+            <li><p>Añade una clase <span class="code">.shrink-0</span> a la <strong>logo</strong> y comprueba cómo se comporta con<span class="code">flex-shrink:0.</span></p></li>
+            <li><p>Crea una tarjeta que no pueda encogerse con <span class="code">flex: 1 0 280px </span>y observa cómo afecta el wrap.</p></li>
+            <li><p>Usa <span class="code">justify-content: center</span> en <span class="code">.card-grid</span>para centrar tarjetas si hay “huecos” en el último renglón.</p></li>
+           </ul>
+        </section>
+
+        <p style="margin-top:1rem">
+            <a href="index.html">⬅️ Volver al índice de CSS</a>
+            ·
+            <a href="../01-html-basico/index.html">Ir al índice de HTML</a>
+        </p>
+    </main>
+</body>
+
+</html>

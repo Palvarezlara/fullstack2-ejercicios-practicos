@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 02 - Box Model</title>
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/02-box-model.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>
+            Box Model, display, overflow
+        </h1>
+        <section class="card">
+            <h2>1) Cajas Comparativas</h2>
+            <div class="fila">
+                <div class="caja a">A<br><small>margin/padding distintos</small></div>
+                <div class="caja b">B<br><small>border/outline</small></div>
+                <div class="caja c">C<br><small>overflow</small></div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>2) Inline, inline-block y block</h2>
+            <p>
+                <span class="tag inline">inline</span>
+                <span class="tag inline-block">inline-block</span>
+                <span class="tag block">block</span>
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>3) Reto: tarjeta con imagen y botón</h2>
+            <article class="producto">
+                <img src="https://placehold.co/320x180" alt="Imagen de producto">
+                <div class="contenido">
+                    <h3>Producto de ejemplo</h3>
+                    <p class="desc">Breve descripción para practicar padding, margin y alineación del botón.</p>
+                    <p class="precio">$12.990</p>
+                    <button class="btn">Agregar al carrito</button>
+                </div>
+            </article>
+        </section>
+        <section class="card">
+            <h2>✅ Tareas opcionales</h2>
+            <ul>
+                <li>Cambia <span class="code">box-sizing</span> a <span class="code">content-box</span> solo en <span
+                        class="code">.caja.a</span> y observa la diferencia.</li>
+                <li>Haz que <span class="code">.producto img</span> tenga <span class="code">width: 40% </span>y el
+                    texto ocupe el resto (prueba también en móvil).</li>
+                <li>Limita el alto de <span class="code">.desc</span> a 2 líneas usando <span
+                        class="code">line-clamp</span> (pista: display: <span class="code"> -webkit-box;
+                        -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;</span>).
+                </li>
+            </ul>
+        </section>
+
+        <p style="margin-top:1rem">
+            <a href="index.html">⬅️ Volver al índice de CSS</a>
+            ·
+            <a href="../01-html-basico/index.html">Ir al índice de HTML</a>
+        </p>
+    </main>
+</body>
+
+</html>

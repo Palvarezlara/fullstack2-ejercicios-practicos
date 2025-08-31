@@ -1,0 +1,151 @@
+/* ====== HEADER (barra de navegación) ====== */
+.site-header{
+  /* Contenedor flex horizontal */
+  display:flex;
+  align-items:center;              /* Centra verticalmente logo, nav y acciones */
+  justify-content:space-between;   /* Separa los grupos a los extremos */
+  gap:1rem;
+  padding: var(--space-2);
+  background:#fff;
+  border-bottom:1px solid var(--gray-300);
+}
+
+.logo{
+  font-weight:700;
+  font-size:1.125rem;
+  color: var(--gray-900);
+}
+
+.nav .nav-list{
+  /* Lista horizontal con separación */
+  display:flex;
+  gap:1rem;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.nav .nav-list a{ color: var(--gray-700); }
+.nav .nav-list a:hover{ color: var(--primary); }
+
+.nav-actions{
+  /* Input y botón alineados en fila */
+  display:flex;
+  gap:.5rem;
+  align-items:center;
+  min-width: 240px; /* ancho mínimo para que el input no colapse */
+}
+
+.nav-actions input[type="search"]{
+  /* Que el input crezca para ocupar el espacio sobrante */
+  flex:1 1 auto;  /* grow:1 permite crecer, basis:auto se ajusta al contenido/espacio */
+  padding:.5rem .75rem;
+  border:1px solid var(--gray-300);
+  border-radius:10px;
+}
+
+.btn{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  padding:.5rem .9rem;
+  cursor:pointer;
+}
+
+.btn:hover{ filter:brightness(.95); }
+
+/* ====== HERO ====== */
+.hero p{ margin:.25rem 0 0; color: var(--gray-700); }
+
+/* ====== GRID DE TARJETAS (Flex-wrap) ====== */
+.card-grid{
+  /* Contenedor flexible que envuelve */
+  display:flex;
+  flex-wrap:wrap;         /* Permite que los hijos bajen de línea */
+  gap:1rem;               /* Separación entre tarjetas */
+}
+
+.card-item{
+  /* flex: grow shrink basis
+     - grow: 1   → puede crecer
+     - shrink: 1 → puede encogerse
+     - basis: 240px → ancho base sugerido (columna mínima)
+   */
+  flex: 1 1 240px;
+  background:#fff;
+  border:1px solid var(--gray-300);
+  border-radius: var(--radius);
+  overflow:hidden;        /* Esconde posibles desbordes de la imagen */
+  display:flex;           /* Para alinear verticalmente el contenido completo si lo necesitas */
+  flex-direction:column;  /* Imagen arriba, cuerpo abajo */
+}
+
+/* Tarjeta que crece el doble que las demás (demostración flex-grow) */
+.grow-2{ flex-grow: 2; }
+
+.card-item img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.card-body{
+  display:flex;           /* Para empujar el footer al fondo */
+  flex-direction:column;
+  gap:.5rem;
+  padding: var(--space-2);
+}
+
+.card-body h3{ margin: .25rem 0; }
+
+.card-body p{ color: var(--gray-700); margin:0; }
+
+.card-footer{
+  margin-top:auto; /* Empuja el footer al fondo de la tarjeta (alto uniforme) */
+  display:flex;
+  justify-content:flex-end;
+}
+
+/* ====== LABORATORIO: order en móvil ====== */
+.order-row{
+  display:flex;
+  gap: .75rem;
+}
+
+.box{
+  flex: 1 1 120px;
+  background:#fff;
+  border:1px solid var(--gray-300);
+  border-radius:10px;
+  padding:1rem;
+  text-align:center;
+  font-weight:700;
+}
+
+/* ====== RESPONSIVE (móvil) ====== */
+@media (max-width: 680px){
+  .site-header{
+    /* Permite que los grupos salten a otra línea */
+    flex-wrap:wrap;
+  }
+
+  /* Reordenamos elementos:
+     Objetivo: en móvil queremos primero el logo, luego las acciones (buscador), luego el menú */
+  .logo{ order: 1; }
+  .nav-actions{ order: 2; width:100%; }      /* Ocupa todo el ancho, input crece */
+  .nav{ order: 3; width:100%; }
+
+  .nav .nav-list{
+    /* Menú en varias líneas, centrado en móvil */
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:.75rem .75rem;
+    padding-top:.5rem;
+  }
+
+  /* Laboratorio: cambiamos el orden a C, A, B */
+  .box--A{ order: 2; }
+  .box--B{ order: 3; }
+  .box--C{ order: 1; }
+}

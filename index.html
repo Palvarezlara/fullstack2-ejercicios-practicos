@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Repositorio de Prácticas - Fullstack II</title>
+  <link rel="stylesheet" href="02-css-estilos/styles/common.css">
+  <style>
+    .hub { max-width: 820px; margin: 2rem auto; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .card a { display: block; font-weight: 600; margin-top: .35rem; }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <nav class="container">
+      <a href="./index.html" aria-current="page">🏠 Inicio</a>
+      <a href="./01-html-basico/index.html">HTML Básico</a>
+      <a href="./02-css-estilos/index.html">CSS</a>
+    </nav>
+  </header>
+
+  <main class="container hub">
+    <h1>Repositorio de Prácticas — Fullstack II</h1>
+    <p>Elige una sección para comenzar:</p>
+    <div class="grid">
+      <section class="card">
+        <h2>HTML Básico</h2>
+        <p>Estructura, semántica, formularios, multimedia y accesibilidad.</p>
+        <a href="01-html-basico/index.html">Ir al índice de HTML →</a>
+      </section>
+      <section class="card">
+        <h2>CSS</h2>
+        <p>Selectores, Box Model, Flexbox, Grid y responsive.</p>
+        <a href="02-css-estilos/index.html">Ir al índice de CSS →</a>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

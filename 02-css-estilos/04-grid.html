@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS 04 - Grid</title>
+  <!-- Hoja base y utilidades -->
+  <link rel="stylesheet" href="styles/common.css">
+  <!-- Estilos propios de este ejercicio -->
+  <link rel="stylesheet" href="styles/04-grid.css">
+</head>
+<body>
+  <!-- Barra reutilizable (mismo estilo del resto) -->
+  <header class="site-nav">
+    <nav class="container">
+      <a href="../index.html">🏠 Inicio</a>
+      <a href="../01-html-basico/index.html">HTML</a>
+      <a href="index.html">CSS</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>CSS Grid: auto-fit/auto-fill, áreas y “masonry”</h1>
+    <p>Practica <code>grid-template-columns</code> con <code>repeat(auto-fit|minmax)</code>, <code>grid-template-areas</code> y un layout tipo “masonry” con <code>grid-auto-rows</code> + <code>grid-auto-flow: dense</code>.</p>
+
+    <!-- 1) Galería responsive con auto-fit + minmax -->
+    <section class="card">
+      <h2>1) Galería responsive (auto-fit + minmax)</h2>
+      <p>Se adaptan las columnas según el ancho disponible, manteniendo un mínimo cómodo.</p>
+
+      <div class="gallery">
+        <!-- Tarjetas de ejemplo -->
+        <article class="tile">
+          <img src="https://placehold.co/640x360" alt="Imagen 1">
+          <h3>Tarjeta 1</h3>
+          <p>Texto breve.</p>
+        </article>
+        <article class="tile">
+          <img src="https://placehold.co/640x360" alt="Imagen 2">
+          <h3>Tarjeta 2</h3>
+          <p>Otro texto breve.</p>
+        </article>
+        <article class="tile">
+          <img src="https://placehold.co/640x360" alt="Imagen 3">
+          <h3>Tarjeta 3</h3>
+          <p>Contenido de ejemplo para ver el ajuste.</p>
+        </article>
+        <article class="tile">
+          <img src="https://placehold.co/640x360" alt="Imagen 4">
+          <h3>Tarjeta 4</h3>
+          <p>Más contenido.</p>
+        </article>
+        <article class="tile">
+          <img src="https://placehold.co/640x360" alt="Imagen 5">
+          <h3>Tarjeta 5</h3>
+          <p>Contenido adicional.</p>
+        </article>
+      </div>
+
+      <p class="nota">Prueba cambiar el tamaño de la ventana para ver cómo varía el número de columnas.</p>
+    </section>
+
+    <!-- 2) Grid por áreas: header/nav/main/aside/footer -->
+    <section class="card">
+      <h2>2) Grid por áreas (plantilla responsive)</h2>
+      <p>Definimos un layout con <code>grid-template-areas</code> en escritorio y lo reordenamos en móvil.</p>
+
+      <div class="layout">
+        <header class="box area-header"><strong>Header</strong> (logo/título)</header>
+        <nav class="box area-nav" aria-label="Navegación secundaria">
+          <ul>
+            <li><a href="#">Enlace 1</a></li>
+            <li><a href="#">Enlace 2</a></li>
+            <li><a href="#">Enlace 3</a></li>
+          </ul>
+        </nav>
+        <main class="box area-main">
+          <h3>Contenido principal</h3>
+          <p>Donde va el contenido más importante de la página.</p>
+        </main>
+        <aside class="box area-aside">
+          <h3>Aside</h3>
+          <p>Complementos, anuncios o widgets.</p>
+        </aside>
+        <footer class="box area-footer">Footer © 2025</footer>
+      </div>
+    </section>
+
+    <!-- 3) “Masonry” simple con grid-auto-rows + dense -->
+    <section class="card">
+      <h2>3) “Masonry” con Grid (sin JS)</h2>
+      <p>Simulamos alturas variables usando filas pequeñas y <code>grid-row: span N</code>.</p>
+
+      <div class="masonry">
+        <article class="brick h-20"><h4>Bloque 1</h4><p>Alto medio.</p></article>
+        <article class="brick h-12"><h4>Bloque 2</h4><p>Más corto.</p></article>
+        <article class="brick h-28"><h4>Bloque 3</h4><p>Más alto para ocupar varias filas.</p></article>
+        <article class="brick h-16"><h4>Bloque 4</h4><p>Intermedio.</p></article>
+        <article class="brick h-24"><h4>Bloque 5</h4><p>Alto mayor.</p></article>
+        <article class="brick h-10"><h4>Bloque 6</h4><p>Corto.</p></article>
+        <article class="brick h-18"><h4>Bloque 7</h4><p>Intermedio.</p></article>
+        <article class="brick h-14"><h4>Bloque 8</h4><p>Corto-intermedio.</p></article>
+      </div>
+
+      <p class="nota">La clase <code>.h-XX</code> controla cuántas filas “pequeñas” ocupa cada bloque.</p>
+    </section>
+
+    <!--Tarjeta con pasos para practicar-->
+        <section class="card">
+            <h2>🧪 Pasos para practicar</h2>
+            <ol>
+                <li><p>Galería (<span class="code">.gallery</span>):</p>
+                    <ul>
+                      <li>Cambia <span class="code">auto-fit</span> por <span class="code">auto-fill</span> y observa la diferencia cuando sobra espacio.</li>
+                      <li>Modifica el mínimo de <span class="code">minmax(220px, 1fr)</span> a <span class="code">minmax(260px, 1fr)</span>.</li>
+                    </ul>
+                </li>
+                <li><p>Áreas (<span class="code">.layout</span>):</p>
+                    <ul>
+                        <li>Añade una tercera columna para aside:<span class="code">2grid-template-columns: 2fr 4fr 3fr</span> y ajusta áreas a <span class="code">"header header header" "nav main aside" "nav main aside" "footer footer footer"</span>.</li>
+                        <li>Quita temporalmente <span class="code">@media (max-width: 680px)</span> y prueba en móvil.</li>  
+                    </ul>
+                </li>
+                <li><p>Masonry (<span class="code">.masonry</span>):</p>
+                    <ul>
+                        <li>Cambia <span class="code">grid-auto-rows</span> a <span class="code">6px</span> y ajusta las clases <span class="code">.h-XX</span> para mantener proporciones.</li>
+                        <li>Agrega nuevos bloques con diferentes alturas (por ejemplo <span class="code">h-22,</span> <span class="code">h-30</span>) y verifica el “relleno” de huecos.</li>
+                      </ul>
+                </li>
+            </ol>          
+        </section>
+
+    <p style="margin-top:1rem">
+      <a href="index.html">⬅️ Volver al índice de CSS</a> ·
+      <a href="../01-html-basico/index.html">Ir al índice de HTML</a>
+    </p>
+  </main>
+</body>
+</html>
