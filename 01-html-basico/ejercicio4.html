@@ -5,134 +5,202 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 4 - Semántica HTML</title>
+    <link rel="stylesheet" href="../02-css-estilos/styles/common.css"> <!--Css principal-->
     <!-- CSS mínimo para ver la estructura (solo apoyo visual) -->
     <style>
-        *{box-sizing: border-box;}
-        body{margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.5;}
-        header, nav, main, aside, footer{border: 1px dashed #c8c8c8; padding: .75rem;}
-        header{background:#f7f7f7}
-        nav a{margin-right: .75rem;}
-        .container{display: grid; grid-template-columns: 1fr 280px; gap: 1rem; padding: 1rem}
-        .skip-link{position: absolute; left:-9999px; top:auto;}
-        .skip-link:focus{position: static; background: #000; color: #fff; padding: .5rem;}
-        article{background: #fff;}
-        figure{margin: 0;}
-        figcaption{font-size: .9rem; color: #555;}
-        footer{background: #fafafa;}
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        header,
+        nav,
+        main,
+        aside,
+        footer {
+            border: 1px dashed #c8c8c8;
+            padding: .75rem;
+        }
+
+        header {
+            background: #f7f7f7
+        }
+
+        nav a {
+            margin-right: .75rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 1rem;
+            padding: 1rem
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+        }
+
+        .skip-link:focus {
+            position: static;
+            background: #000;
+            color: #fff;
+            padding: .5rem;
+        }
+
+        article {
+            background: #fff;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        figcaption {
+            font-size: .9rem;
+            color: #555;
+        }
+
+        footer {
+            background: #fafafa;
+        }
     </style>
 </head>
 
 <body>
-<!-- Enlace de salto para lectores de pantalla y navegación por teclado -->
-<a href="#contenido" class="skip-link">Saltar al contenido principal</a>
+    <!--Contenido transversal a todas las paginas-->
+    <header class="site-nav">
+        <nav class="container">
+            <a href="../index.html">🏠 Inicio</a>
+            <a href="index.html" aria-current="page" >HTML Básico</a>
+            <a href="/02-css-estilos/index.html">CSS</a>
+            <a href="/03-bootstrap/index.html">Bootstrap</a>
+            <a href="/04-js-dom/index.html">Javascript</a>
+            <a href="/05-localstorage-cookies/index.html">LocalStorage</a>
+            <a href="/06-pruebas-unitarias/index.html">Pruebas Unitarias</a>
+        </nav>
+    </header>
 
-<!-- Encabezado del sitio -->
-<header>
-    <h1>Mi Sitio Semántico</h1>
-    <p>Demostración de estructura con elementos HTML5.</p>
+    <!-- Enlace de salto para lectores de pantalla y navegación por teclado -->
+    <a href="#contenido" class="skip-link">Saltar al contenido principal</a>
 
-<!-- Navegación principal -->
- <nav arial-label="Navegación principal">
-    <a href="index.html">Inicio</a>
-    <a href="#articulos">Artículos</a>
-    <a href="#acerca">Acerca</a>
-    <a href="#contacto">Contacto</a>
- </nav>
-</header>
+    <!-- Encabezado del sitio -->
+    <header>
+        <h1>Mi Sitio Semántico</h1>
+        <p>Demostración de estructura con elementos HTML5.</p>
 
-<!--Contenedor principal con main + aside-->
-<div class="container">
-    <!--Contenido principal del documento-->
-    <main id="contenido">
-        <!--Sección 1: artículos del blog o noticias-->
-        <section id="articulos" aria-labelledby="titulo-articulos">
-            <h2 id="titulo-articulos">Artículos recientes</h2>
+        <!-- Navegación principal -->
+        <nav arial-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="#articulos">Artículos</a>
+            <a href="#acerca">Acerca</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
 
-            <!--Un artículo es contenido independiente y reutilizable-->
-            <article>
-                <header>
-                    <h3>Cómo estructurar una página con HTML5</h3>
-                    <p><small>Publicado por Pamela • 29-08-2025 </small></p>
-                </header>
+    <!--Contenedor principal con main + aside-->
+    <div class="container">
+        <!--Contenido principal del documento-->
+        <main id="contenido">
+            <!--Sección 1: artículos del blog o noticias-->
+            <section id="articulos" aria-labelledby="titulo-articulos">
+                <h2 id="titulo-articulos">Artículos recientes</h2>
 
+                <!--Un artículo es contenido independiente y reutilizable-->
+                <article>
+                    <header>
+                        <h3>Cómo estructurar una página con HTML5</h3>
+                        <p><small>Publicado por Pamela • 29-08-2025 </small></p>
+                    </header>
+
+                    <p>
+                        En este artículo revisamos el uso de <code>header</code>, <code>nav</code>,
+                        <code>main</code>, <code>article</code>, <code>section</code>, <code>aside</code>,
+                        <code>footer</code> para crear una estructura semántica clara y accesible.
+                    </p>
+                    <figure>
+                        <img src="https://placehold.co/800x300"
+                            alt="Boceto de una estructura de página con áreas marcadas">
+                        <figcaption>Figura 1. Diagrama simple de una maquetación semántica</figcaption>
+                    </figure>
+                    <footer>
+                        <p><small>Categoría: HTML • Etiquetas: semántica, accesibilidad</small></p>
+                    </footer>
+                </article>
+
+                <article>
+                    <header>
+                        <h3>Buenas prácticas de accesibilidad</h3>
+                        <p><small>Publicado por Pamela • 29-08-2025 </small></p>
+                    </header>
+
+                    <p>
+                        Añade enlaces de salto, textos alternativos en imágenes y encabezados jerárquicos
+                        para mejorar la experiencia de usuarios con lectores de pantalla y navegación por teclado.
+                    </p>
+
+                    <footer>
+                        <p><small>Categoría: Accesibilidad • Etiquetas: a11y, UX</small></p>
+                    </footer>
+                </article>
+            </section>
+
+            <!--Sección 2: acerca de-->
+            <section id="acerca" aria-labelledby="titulo-acerca">
+                <h2 id="titulo-acerca">Acerca del sitio</h2>
                 <p>
-                    En este artículo revisamos el uso de <code>header</code>, <code>nav</code>,
-                    <code>main</code>, <code>article</code>, <code>section</code>, <code>aside</code>,
-                    <code>footer</code> para crear una estructura semántica clara y accesible.
+                    Este sitio de ejemplo existe para practicar semántica en HTML. La idea es separar
+                    claramente navegación, contenido principal, contenido complementario y pie de pagina.
                 </p>
-                <figure>
-                    <img src="https://placehold.co/800x300" alt="Boceto de una estructura de página con áreas marcadas">
-                    <figcaption>Figura 1. Diagrama simple de una maquetación semántica</figcaption>
-                </figure>
-                <footer>
-                    <p><small>Categoría: HTML • Etiquetas: semántica, accesibilidad</small></p>
-                </footer>
-            </article>
+            </section>
 
-            <article>
-                <header>
-                    <h3>Buenas prácticas de accesibilidad</h3>
-                    <p><small>Publicado por Pamela • 29-08-2025 </small></p>
-                </header>
+            <!--Sección 3: contacto-->
+            <section id="contacto" aria-labelledby="titulo-contacto">
+                <h2 id="titulo-contacto">Contacto</h2>
+                <address>
+                    Escrito por <strong>Pamela Álvarez</strong><br>
+                    <a href="mailto:pamela@ejemplo.com">pamela@ejemplo.com</a><br>
+                    Viña del Mar, Chile
+                </address>
+                <p><a href="index.html">⬅️ Volver al inicio</a></p>
+            </section>
+        </main>
 
-                <p>
-                    Añade enlaces de salto, textos alternativos en imágenes y encabezados jerárquicos 
-                    para mejorar la experiencia de usuarios con lectores de pantalla y navegación por teclado.
-                </p>
+        <!--Contenido complementario (barra lateral)-->
+        <aside aria-label="Barra lateral">
+            <h2>Sidebar</h2>
+            <section aria-labelledby="titulo-novedades">
+                <h3 id="titulo-novedades">Novedades</h3>
+                <ul>
+                    <li>Nuevo artículo: Semántica HTML</li>
+                    <li>Actualización: Accesibilidad básica</li>
+                    <li>Próximamente: CSS Layout</li>
+                </ul>
+            </section>
 
-                <footer>
-                    <p><small>Categoría: Accesibilidad • Etiquetas: a11y, UX</small></p>
-                </footer>
-            </article>
-        </section>
+            <section aria-labelledby="titulo-recursos">
+                <h3 id="titulo-recursos">Recursos útiles</h3>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" rel="noopener">MDN
+                            HTML</a></li>
+                    <li><a href="https://web.dev/learn/html/" target="_blank" rel="noopener">web.dev: Aprende HTML</a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+    </div>
 
-        <!--Sección 2: acerca de-->
-        <section id="acerca" aria-labelledby="titulo-acerca">
-            <h2 id="titulo-acerca">Acerca del sitio</h2>
-            <p>
-                Este sitio de ejemplo existe para practicar semántica en HTML. La idea es separar
-                claramente navegación, contenido principal, contenido complementario y pie de pagina.
-            </p>
-        </section>
-
-        <!--Sección 3: contacto-->
-        <section id="contacto" aria-labelledby="titulo-contacto">
-            <h2 id="titulo-contacto">Contacto</h2>
-            <address>
-                Escrito por <strong>Pamela Álvarez</strong><br>
-                <a href="mailto:pamela@ejemplo.com">pamela@ejemplo.com</a><br>
-                Viña del Mar, Chile
-            </address>
-            <p><a href="index.html">⬅️ Volver al inicio</a></p>
-        </section>
-    </main>
-
-    <!--Contenido complementario (barra lateral)-->
-    <aside aria-label="Barra lateral">
-        <h2>Sidebar</h2>
-        <section aria-labelledby="titulo-novedades">
-            <h3 id="titulo-novedades">Novedades</h3>
-            <ul>
-                <li>Nuevo artículo: Semántica HTML</li>
-                <li>Actualización: Accesibilidad básica</li>
-                <li>Próximamente: CSS Layout</li>
-            </ul>
-        </section>
-
-        <section aria-labelledby="titulo-recursos">
-            <h3 id="titulo-recursos">Recursos útiles</h3>
-            <ul>
-                <li><a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank" rel="noopener">MDN HTML</a></li>
-                <li><a href="https://web.dev/learn/html/" target="_blank" rel="noopener">web.dev: Aprende HTML</a></li>
-            </ul>
-        </section>
-    </aside>
-</div>
-
-<!--Pie de página del documento-->
-<footer>
-    <p>&copy; 2025 Pamela Álvarez - Sitio de práctica semántica.</p>
-</footer>
+    <!--Pie de página del documento-->
+    <footer>
+        <p>&copy; 2025 Pamela Álvarez - Sitio de práctica semántica.</p>
+    </footer>
 </body>
 
 </html>

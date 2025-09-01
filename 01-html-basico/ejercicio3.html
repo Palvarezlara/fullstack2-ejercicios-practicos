@@ -5,9 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 3 - Formularios en HTML</title>
+    <link rel="stylesheet" href="../02-css-estilos/styles/common.css">
+    <style>
+        footer {
+            background: #fafafa;
+            border: 1px dashed #c8c8c8;
+            padding: .75rem;
+            text-align: center;
+            font-size: .9rem;
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 
 <body>
+    <header class="site-nav">
+        <nav class="container">
+            <a href="../index.html">🏠 Inicio</a>
+            <a href="index.html" aria-current="page" >HTML Básico</a>
+            <a href="/02-css-estilos/index.html">CSS</a>
+            <a href="/03-bootstrap/index.html">Bootstrap</a>
+            <a href="/04-js-dom/index.html">Javascript</a>
+            <a href="/05-localstorage-cookies/index.html">LocalStorage</a>
+            <a href="/06-pruebas-unitarias/index.html">Pruebas Unitarias</a>
+        </nav>
+    </header>
     <h1>Ejercicio 3 - Formularios básicos en HTML</h1>
     <p>Practicaremos etiquetas de formularios y validaciones nativas de HTML5.
         Todos los <strong>label</strong> están asociados a su <strong>input</strong> usando el atributo
@@ -110,18 +132,23 @@
             <button type="submit">Enviar</button>
             <button type="reset">Limpiar</button>
 
-            <a href="index.html">⬅️ Volver al inicio</a>
+
         </div>
     </form>
     <hr>
     <h2>Qué practicar en este ejercicio</h2>
     <ul>
         <li>Asociar <code>label</code> con <code>input</code> mediante <code>for</code> e <code>id</code>.</li>
-        <li>Usar validaciones nativas: <code>required</code>, <code>min</code>, <code>max</code>, <code>pattern</code>.</li>
+        <li>Usar validaciones nativas: <code>required</code>, <code>min</code>, <code>max</code>, <code>pattern</code>.
+        </li>
         <li>Agrupar campos con <code>fieldset</code> y <code>legend</code> para semántica.</li>
         <li>Controles: texto, email, tel, number, date, select, radio, checkbox, textarea.</li>
         <li>Autocompletar con <code>datalist</code>.</li>
-  </ul>
+    </ul>
+    <a href="index.html">⬅️ Volver al inicio</a>
 </body>
+<footer>
+    <p>© 2025 Repositorio de Prácticas - Fullstack II</p>
+</footer>
 
 </html>
